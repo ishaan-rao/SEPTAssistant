@@ -15,8 +15,8 @@ import retrofit2.Response;
 public class Uber {
 	
 	private static SessionConfiguration config = new SessionConfiguration.Builder()
-		    .setClientId("ICfD5Ez9WdiXWQd4JVZfN5lyXsjpSDwW")
-		    .setServerToken("NofPx0xr519nOPBkHsYX9VcaKZ4tgxWlTTt5vWRn")
+		    .setClientId("")
+		    .setServerToken("")
 		    .build();
 
 	private static ServerTokenSession session = new ServerTokenSession(config);

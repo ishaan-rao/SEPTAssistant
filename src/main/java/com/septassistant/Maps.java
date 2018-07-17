@@ -13,7 +13,7 @@ import com.google.maps.GeocodingApi;
 import com.google.maps.GeocodingApiRequest;
 
 public class Maps {
-	private static final String API_KEY = "AIzaSyD2sWiV-pf44XLQcBeovNi-X5LEa29sSRs";
+	private static final String API_KEY = "";
 	
 	public static long getDistance(String origin, String destination, TravelMode mode) {
 		GeoApiContext.Builder builder = new GeoApiContext.Builder().apiKey(API_KEY);
