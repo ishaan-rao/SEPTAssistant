@@ -1,0 +1,154 @@
+39.9558,-75.1820,CC,CC,30th Street Station
+39.9436,-75.2167,1,Bottom,49th St
+40.2523,-75.2756,4,Top,9th St
+39.8760,-75.2451,4,Bottom,Airport Terminal A
+39.8763,-75.2446,4,Bottom,Airport Terminal B
+39.8774,-75.2413,4,Bottom,Airport Terminal C-D
+39.8791,-75.2400,4,Bottom,Airport Terminal E-F
+39.9964,-75.1140,1,Top,Allegheny
+40.0575,-75.1947,2,Bottom,Allen Lane
+40.1528,-75.2245,3,Top,Ambler
+39.9447,-75.2386,1,Bottom,Angora
+40.0084,-75.2902,2,Bottom,Ardmore
+40.1142,-75.1531,3,Top,Ardsley
+40.0011,-75.2278,2,Bottom,Bala
+40.0480,-75.4424,3,Bottom,Berwyn
+40.1165,-75.0685,3,Top,Bethayres
+40.0106,-75.0696,2,Bottom,Bridesburg
+40.1047,-74.8547,4,Bottom,Bristol
+40.0220,-75.3159,3,Bottom,Bryn Mawr
+40.0511,-75.1914,2,Bottom,Carpenter
+40.2878,-75.2112,4,Top,Chalfont
+40.0300,-75.1808,1,Bottom,Chelten Avenue
+40.0573,-75.0972,2,Top,Cheltenham
+39.8493,-75.3599,3,Bottom,Chester TC
+40.0811,-75.2072,2,Top,Chestnut Hill East
+40.0768,-75.2079,2,Bottom,Chestnut Hill West
+39.7977,-75.4523,4,Bottom,Claymont
+39.9263,-75.2908,2,Bottom,Clifton-Aldan
+40.2685,-75.2542,4,Top,Colmar
+40.0722,-75.3086,3,Top,Conshohocken
+40.0717,-74.9521,3,Bottom,Cornwells Heights
+40.1333,-75.1186,3,Top,Crestmont
+40.0936,-74.9067,3,Bottom,Croydon
+39.8719,-75.3311,3,Bottom,Crum Lynne
+39.9081,-75.2650,2,Bottom,Curtis Park
+40.0067,-75.2317,2,Bottom,Cynwyd
+40.0431,-75.4604,3,Bottom,Daylesford
+39.9128,-75.2547,2,Bottom,Darby
+40.2972,-75.1617,4,Top,Delaware Valley College
+40.0472,-75.4228,3,Bottom,Devon
+40.0022,-75.7108,4,Bottom,Downingtown
+40.3063,-75.1308,4,Top,Doylestown
+40.0115,-75.1920,1,Top,East Falls
+39.8917,-75.2450,1,Bottom,Eastwick Station
+40.0829,-74.9336,3,Bottom,Eddington
+39.8572,-75.3422,3,Bottom,Eddystone
+40.0712,-75.1279,2,Top,Elkins Park
+40.1208,-75.3450,3,Top,Elm St
+39.9079,-75.4112,3,Bottom,Elwyn Station
+40.0195,-75.6218,4,Bottom,Exton
+40.0415,-75.1351,1,Top,Fern Rock TC
+39.9397,-75.2558,2,Bottom,Fernwood
+39.9006,-75.2797,2,Bottom,Folcroft
+40.1277,-75.0209,3,Top,Forest Hills
+40.1353,-75.2114,3,Top,Ft Washington
+40.2595,-75.2662,4,Top,Fortuna
+40.0759,-75.0836,2,Top,Fox Chase
+40.0375,-75.1717,1,Top,Germantown
+39.9327,-75.2822,2,Bottom,Gladstone
+39.8964,-75.2900,2,Bottom,Glenolden
+40.1014,-75.1536,3,Top,Glenside
+40.0775,-75.2017,2,Top,Gravers
+40.1847,-75.2569,3,Top,Gwynedd Valley
+40.1703,-75.1024,3,Top,Hatboro
+40.0139,-75.2997,2,Bottom,Haverford
+39.8336,-75.3933,3,Bottom,Highland Ave
+40.0705,-75.2112,2,Bottom,Highland
+40.0329,-75.0238,2,Bottom,Holmesburg Jct
+40.0342,-75.2356,2,Top,Ivy Ridge
+40.0928,-75.1375,3,Top,Jenkintown-Wyncote
+40.1608,-74.9125,4,Top,Langhorne
+40.2428,-75.2850,4,Top,Lansdale
+39.9372,-75.2716,2,Bottom,Lansdowne
+40.0514,-75.1031,2,Top,Lawndale
+40.1403,-74.8169,4,Bottom,Levittown
+40.2739,-75.2467,4,Top,Link Belt
+40.1170,-75.3488,3,Top,Main St
+40.0365,-75.5157,4,Bottom,Malvern
+40.0269,-75.2250,2,Top,Manayunk East
+39.8215,-75.4197,3,Bottom,Marcus Hook
+39.9525,-75.1581,CC,CC,Jefferson Station
+40.1114,-75.0925,3,Top,Meadowbrook
+39.9141,-75.3947,3,Bottom,Media
+40.0595,-75.1293,2,Top,Melrose Park
+39.9982,-75.2508,2,Bottom,Merion
+40.0586,-75.2664,2,Top,Miquon
+39.9081,-75.3284,2,Bottom,Morton
+39.9061,-75.3886,3,Bottom,Moylan-Rose Valley
+40.0649,-75.1916,2,Top,Mt Airy
+40.0048,-75.2615,2,Bottom,Narberth
+40.1469,-74.9622,3,Top,Neshaminy Falls
+40.2965,-75.1797,4,Top,New Britain
+39.6703,-75.7531,4,Bottom,Newark
+40.1126,-75.3442,3,Top,Norristown TC
+39.9924,-75.1545,1,Top,North Broad St
+40.1119,-75.1694,3,Top,North Hills
+39.9975,-75.1544,1,Bottom,North Philadelphia
+40.2142,-75.2722,4,Top,North Wales
+39.8917,-75.3022,2,Bottom,Norwood
+40.0333,-75.1228,1,Top,Olney
+40.1181,-75.1839,3,Top,Oreland
+39.9894,-75.2494,2,Bottom,Overbrook
+40.0429,-75.4836,4,Bottom,Paoli
+40.1700,-75.2442,3,Top,Penllyn
+40.2303,-75.2817,4,Top,Pennbrook
+40.1219,-75.0436,3,Top,Philmont
+39.9217,-75.2983,2,Bottom,Primos
+39.8880,-75.3094,2,Bottom,Prospect Park
+40.0233,-75.1781,1,Bottom,Queen Lane
+40.0449,-75.3595,3,Bottom,Radnor
+39.8806,-75.3222,3,Bottom,Ridley Park
+40.0278,-75.3267,3,Bottom,Rosemont
+40.1208,-75.1342,3,Top,Roslyn
+40.1075,-75.1106,3,Top,Rydal
+40.0642,-75.0864,2,Top,Ryers
+39.9158,-75.3097,2,Bottom,Secane
+39.9044,-75.2708,2,Bottom,Sharon Hill
+40.1306,-75.0119,3,Top,Somerton
+40.0742,-75.2861,3,Top,Spring Mill
+40.0439,-75.3725,3,Bottom,St. Davids
+40.0658,-75.2044,2,Bottom,St. Martins
+40.0606,-75.1786,2,Top,Stenton
+40.0496,-75.4038,3,Bottom,Strafford
+39.9541,-75.1668,CC,CC,Suburban Station
+39.9022,-75.3508,3,Bottom,Swarthmore
+40.0233,-75.0389,2,Bottom,Tacony
+39.9816,-75.1494,CC,CC,Temple U
+39.9228,-75.7636,4,Bottom,Thorndale
+40.0545,-74.9847,3,Bottom,Torresdale
+40.2188,-74.7544,NJ,Bottom,Trenton
+40.1403,-74.9825,3,Top,Trevose
+40.0353,-75.1869,2,Bottom,Tulpehocken
+39.9481,-75.1903,CC,CC,University City
+40.0426,-75.1902,2,Bottom,Upsal
+40.0388,-75.3422,3,Bottom,Villanova
+39.9036,-75.3719,3,Bottom,Wallingford
+40.1951,-75.0889,3,Top,Warminster
+40.0508,-75.1714,2,Top,Washington Lane
+40.0222,-75.1600,1,Top,Wayne Jct
+40.0457,-75.3872,3,Bottom,Wayne
+40.2578,-74.8153,NJ,Top,West Trenton
+40.0147,-75.6381,4,Bottom,Whitford
+40.1437,-75.1143,3,Top,Willow Grove
+39.7367,-75.5511,4,Bottom,Wilmington
+40.0165,-75.2103,2,Top,Wissahickon
+40.0361,-75.1611,1,Top,Wister
+40.1909,-74.8910,4,Top,Woodbourne
+40.0733,-75.1967,2,Top,Wyndmoor
+39.9900,-75.2256,1,Bottom,Wynnefield Avenue
+40.0028,-75.2725,2,Bottom,Wynnewood
+40.2351,-74.8310,4,Top,Yardley
+40.0628,-75.1853,2,Top,Sedgwick
+40.1045,-75.1247,3,Top,Noble
+39.6950,-75.6725,4,Bottom,Churchmans Crossing
