@@ -4,16 +4,22 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 import com.google.maps.model.LatLng;
 import com.google.maps.model.TravelMode;
+import com.septassistant.model.NearestStationResult;
 import com.septassistant.model.Route;
+import com.septassistant.model.SeptaRoute;
 import com.septassistant.model.SeptaStation;
 import com.septassistant.model.Zone;
-import com.septassistant.model.ZoneDirection;
 
 import org.json.JSONObject;
 import org.json.JSONArray;
@@ -26,7 +32,10 @@ public class Septa {
 	private static final double OUTLYING_COST = 3.75;
 	private static final double VIA_CCP_COST = 9.25;
 	
-	public static void init() {
+	private static Date date = null;
+	private static boolean isWeekday = false;
+	
+	private static void init() {
 		FileReader fr = null;
 		try {
 			fr = new FileReader("src/main/resources/stations.txt");
@@ -47,72 +56,38 @@ public class Septa {
 			double lat = Double.parseDouble(splitted[0]);
 			double lng = Double.parseDouble(splitted[1]);
 			String zoneInput = splitted[2];
-			String zoneDirectionInput = splitted[3];
-			String name = splitted[4];
+			String name = splitted[3];
 						
 			Zone zone = null;
-			ZoneDirection zoneDirection = null;
 			
-			if (zoneDirectionInput.equals("CC")) {
-				zone = Zone.CENTER_CITY;
-				zoneDirection = ZoneDirection.CENTER_CITY;
-			} else if (zoneDirectionInput.equals("Top")) {
-				switch(zoneInput) {
-					case "1":
-						zone = Zone.ONE;
-						zoneDirection = ZoneDirection.TOP;
-						break;
-					case "2":
-						zone = Zone.TWO;
-						zoneDirection = ZoneDirection.TOP;
-						break;
-					case "3":
-						zone = Zone.THREE;
-						zoneDirection = ZoneDirection.TOP;
-						break;
-					case "4":
-						zone = Zone.FOUR;
-						zoneDirection = ZoneDirection.TOP;
-						break;
-					case "NJ":
-						zone = Zone.NJ;
-						zoneDirection = ZoneDirection.TOP;
-						break;
-					default:
-						break;
-				} 
-			} else {
-				switch(zoneInput) {
-					case "1":
-						zone = Zone.ONE;
-						zoneDirection = ZoneDirection.BOTTOM;
-						break;
-					case "2":
-						zone = Zone.TWO;
-						zoneDirection = ZoneDirection.BOTTOM;
-						break;
-					case "3":
-						zone = Zone.THREE;
-						zoneDirection = ZoneDirection.BOTTOM;
-						break;
-					case "4":
-						zone = Zone.FOUR;
-						zoneDirection = ZoneDirection.BOTTOM;
-						break;
-					case "NJ":
-						zone = Zone.NJ;
-						zoneDirection = ZoneDirection.BOTTOM;
-						break;
-					default: 
-						break;
-				}
-			}
+			switch(zoneInput) {
+                case "1":
+                    zone = Zone.ONE;
+                    break;
+                case "2":
+                    zone = Zone.TWO;
+                    break;
+                case "3":
+                    zone = Zone.THREE;
+                    break;
+                case "4":
+                    zone = Zone.FOUR;
+                    break;
+                case "NJ":
+                    zone = Zone.NJ;
+                    break;
+                case "CC":
+                    zone = Zone.CENTER_CITY;
+                default:
+                    break;
+            } 
+					
+			SeptaStation septaStation = 
+			        new SeptaStation()
+			        .name(name)
+			        .zone(zone)
+			        .coordinates(new LatLng(lat, lng));
 			
-			SeptaStation septaStation = new SeptaStation();
-			septaStation.setName(name);
-			septaStation.setZone(zone);
-			septaStation.setZoneDirection(zoneDirection);
-			septaStation.setCoordinates(new LatLng(lat, lng));
 			septaStations.put(name, septaStation);	
 			
 			try {
@@ -141,9 +116,15 @@ public class Septa {
 		weekendCosts.put(Zone.THREE, 5.25);
 		weekendCosts.put(Zone.FOUR, 5.25);
 		weekendCosts.put(Zone.NJ, 9.25);
+		
+		date = new Date();    
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        
+        isWeekday = !(cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY);
 	}
 	
-	public static String[] getNearestStation(String origin, String destination) {			
+	private static NearestStationResult getNearestStation(String origin, String destination) {			
 		long originMinTime = Long.MAX_VALUE;
 		long destinationMinTime = Long.MAX_VALUE;
 		String originNearestStation = null;
@@ -167,16 +148,16 @@ public class Septa {
 			
 		}
 		
-		String[] results = new String[4];
-		results[0] = originNearestStation;
-		results[1] = String.valueOf(originMinTime);
-		results[2] = destinationNearestStation;
-		results[3] = String.valueOf(destinationMinTime);
+		NearestStationResult result = new NearestStationResult().
+		        originStation(originNearestStation).
+		        originDuration(originMinTime).
+		        destinationStation(destinationNearestStation).
+		        destinationDuration(destinationMinTime);
 				
-		return results;
+		return result;
 	}
 	
-	public static Route getRoute(String stationOrigin, String stationDestination, String time) {
+	private static Route getRoute(String stationOrigin, String stationDestination, String time) {
 		String stationOrig = stationOrigin.replaceAll(" ", "%20");
 		String stationDest = stationDestination.replaceAll(" ", "%20");
 		
@@ -211,7 +192,7 @@ public class Septa {
 		
 		JSONObject routesObject = null;
 		for (int i = 0; i < routesArray.length(); i++) {
-			if (Septa.isAfter(routesArray.getJSONObject(i).getString("orig_departure_time"), time)) {
+			if (isAfter(routesArray.getJSONObject(i).getString("orig_departure_time"), time)) {
 				routesObject = routesArray.getJSONObject(i);
 				break;
 			} else {
@@ -240,7 +221,7 @@ public class Septa {
 		}
 	}
 	
-	public static boolean isAfter(String trainTime, String time) {
+	private static boolean isAfter(String trainTime, String time) {
 		String startTime = time.trim();
 		String endTime = trainTime.trim();
 		
@@ -277,7 +258,7 @@ public class Septa {
 		}
 	}
 	
-	public static double getCost(String stationOrigin, String stationDestination, boolean isWeekday, Route route) {
+	private static double getCost(String stationOrigin, String stationDestination, boolean isWeekday, Route route) {
 		SeptaStation origin = septaStations.get(stationOrigin);
 		SeptaStation destination = septaStations.get(stationDestination);
 		
@@ -305,5 +286,35 @@ public class Septa {
 		} else {
 			return VIA_CCP_COST;
 		}
+	}
+	
+	private static String getTime(int originDuration) {
+	    Calendar gc = new GregorianCalendar();
+        gc.setTime(date);
+        gc.add(Calendar.SECOND, originDuration);
+        gc.add(Calendar.MINUTE, 1);
+        Date newDate = gc.getTime();
+        
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss a");
+        String format = dateFormat.format(newDate); 
+        
+        String fullTime = format.split(" ")[1];
+        String half = format.split(" ")[2];
+        String time = fullTime.substring(0, fullTime.lastIndexOf(":")) + half;
+        
+        return time; 
+	}
+	
+	public static SeptaRoute getSeptaRoute(String origin, String destination) {
+	    init();
+        NearestStationResult stationResults = getNearestStation(origin, destination);
+        
+        String originStation = stationResults.getOriginStation();
+        String destinationStation = stationResults.getDestinationStation();
+                
+        Route route = getRoute(originStation, destinationStation, getTime((int) stationResults.getOriginDuration()));
+        double cost = getCost(originStation, destinationStation, isWeekday, route);
+       
+	    return new SeptaRoute().cost(cost).route(route);
 	}
 }

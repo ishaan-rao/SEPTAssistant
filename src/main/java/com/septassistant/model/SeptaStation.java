@@ -6,18 +6,6 @@ public class SeptaStation {
 	private String name;
 	private Zone zone;
 	private LatLng coordinates;
-	private ZoneDirection zoneDirection;
-	
-	public SeptaStation() {
-		
-	}
-	
-	public SeptaStation(String name, Zone zone, LatLng coordinates, ZoneDirection zoneDirection) {
-		this.name = name;
-		this.zone = zone;
-		this.coordinates = coordinates;
-		this.zoneDirection = zoneDirection;
-	}
 	
 	public String getName() {
 		return name;
@@ -25,6 +13,11 @@ public class SeptaStation {
 	
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public SeptaStation name(String name) {
+	    this.name = name;
+	    return this;
 	}
 	
 	public Zone getZone() {
@@ -35,6 +28,11 @@ public class SeptaStation {
 		this.zone = zone;
 	}
 	
+	public SeptaStation zone(Zone zone) {
+        this.zone = zone;
+        return this;
+    }
+	
 	public LatLng getCoordinates() {
 		return coordinates;
 	}
@@ -43,11 +41,8 @@ public class SeptaStation {
 		this.coordinates = coordinates;
 	}
 	
-	public ZoneDirection getZoneDirection() {
-		return zoneDirection;
-	}
-	
-	public void setZoneDirection(ZoneDirection zoneDirection) {
-		this.zoneDirection = zoneDirection;
+	public SeptaStation coordinates(LatLng coordinates) {
+	    this.coordinates = coordinates;
+	    return this;
 	}
 }

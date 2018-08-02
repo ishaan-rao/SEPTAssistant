@@ -1,7 +1,11 @@
 package com.septassistant;
 
 import java.io.IOException;
+import java.util.List;
 
+import com.google.maps.model.LatLng;
+import com.google.maps.model.TravelMode;
+import com.septassistant.model.UberRoute;
 import com.uber.sdk.core.client.ServerTokenSession;
 import com.uber.sdk.core.client.SessionConfiguration;
 import com.uber.sdk.rides.client.UberRidesApi;
@@ -22,7 +26,7 @@ public class Uber {
 	private static ServerTokenSession session = new ServerTokenSession(config);
 	private static RidesService ridesService = UberRidesApi.with(session).build().createService();
 	
-	public static PriceEstimate getPriceEstimate(float startLatitude, float startLongitude, float endLatitude, float endLongitude) {
+	private static List<PriceEstimate> getPriceEstimates(float startLatitude, float startLongitude, float endLatitude, float endLongitude) {
 		
 		Call<PriceEstimatesResponse> response = ridesService.getPriceEstimates(startLatitude, startLongitude, endLatitude, endLongitude);
 		
@@ -33,8 +37,24 @@ public class Uber {
 			e.printStackTrace();
 		}
 		
-		PriceEstimate p = priceEstimate.body().getPrices().get(0);
+		List<PriceEstimate> p = priceEstimate.body().getPrices();
 
 		return p;
+	}
+	
+	public static UberRoute getUberRoute(String origin, String destination) {
+	    LatLng originCoordinates = Maps.getCoordinates(origin);
+        LatLng destinationCoordinates = Maps.getCoordinates(destination);
+        
+        List<PriceEstimate> priceEstimates = getPriceEstimates((float) originCoordinates.lat, (float) originCoordinates.lng, (float) destinationCoordinates.lat, (float) destinationCoordinates.lng);
+        
+        long durationInTraffic = Maps.getDurationInTraffic(origin, destination, TravelMode.DRIVING);
+        
+        UberRoute uberRoute = 
+                new UberRoute()
+                .priceEstimates(priceEstimates)
+                .duration(durationInTraffic);
+        
+	    return uberRoute;
 	}
 }
