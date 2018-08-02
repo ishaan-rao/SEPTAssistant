@@ -315,6 +315,10 @@ public class Septa {
         Route route = getRoute(originStation, destinationStation, getTime((int) stationResults.getOriginDuration()));
         double cost = getCost(originStation, destinationStation, isWeekday, route);
        
-	    return new SeptaRoute().cost(cost).route(route);
+	    return new SeptaRoute()
+	            .cost(cost)
+	            .route(route)
+	            .originDuration(stationResults.getOriginDuration())
+	            .destinationDuration(stationResults.getDestinationDuration());
 	}
 }
